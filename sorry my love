@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Love Page 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Dancing Script', cursive;
+    background:linear-gradient(135deg,#ff4da6,#ff99cc,#ffc0cb);
+    text-align:center;
+    color:white;
+    overflow:hidden;
+}
+
+/* Title */
+h1{
+    margin-top:20px;
+    font-size:45px;
+    text-shadow:0 0 10px white;
+}
+
+/* Slider */
+.slider{
+    width:250px;
+    height:250px;
+    margin:20px auto;
+    overflow:hidden;
+    border-radius:20px;
+    box-shadow:0 0 20px white;
+}
+
+.slides{
+    display:flex;
+    width:300%;
+    animation:slide 8s infinite;
+}
+
+.slides img{
+    width:250px;
+    height:250px;
+    object-fit:cover;
+}
+
+@keyframes slide{
+    0%{transform:translateX(0);}
+    33%{transform:translateX(-250px);}
+    66%{transform:translateX(-500px);}
+    100%{transform:translateX(0);}
+}
+
+/* Button */
+button{
+    padding:12px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:25px;
+    background:white;
+    color:#ff1493;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+/* Popup */
+.popup{
+    display:none;
+    position:fixed;
+    top:30%;
+    left:10%;
+    right:10%;
+    background:white;
+    color:#ff1493;
+    padding:25px;
+    border-radius:20px;
+    font-size:22px;
+    box-shadow:0 0 20px black;
+}
+
+/* Hearts */
+.heart{
+    position:absolute;
+    color:red;
+    font-size:20px;
+    animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+    0%{transform:translateY(-10%); opacity:1;}
+    100%{transform:translateY(110vh); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<h1>💖 I Love You Janudi 💖</h1>
+
+<!-- SLIDER -->
+<div class="slider">
+  <div class="slides">
+    <img src="1.jpg">
+    <img src="2.jpg">
+    <img src="3.jpg">
+  </div>
+</div>
+
+<button onclick="showLove()">Click Here ❤️</button>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+💖 Love You Janudi 😘<br>
+I am really Sorry 💔➡️💖
+<br><br>
+<button onclick="closeLove()">Close</button>
+</div>
+
+<!-- SONG -->
+<audio controls autoplay loop>
+  <source src="darkhast.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function showLove(){
+    document.getElementById("popup").style.display="block";
+}
+function closeLove(){
+    document.getElementById("popup").style.display="none";
+}
+
+/* HEART RAIN */
+for(let i=0;i<25;i++){
+    let heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(3+Math.random()*5)+"s";
+    heart.style.fontSize=(10+Math.random()*20)+"px";
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
